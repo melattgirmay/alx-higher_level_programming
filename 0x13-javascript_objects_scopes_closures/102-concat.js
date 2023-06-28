@@ -10,4 +10,3 @@ const concatenatedContent = content1 + content2;
 fs.writeFileSync(destinationFile, concatenatedContent);
 
 console.log(concatenatedContent);
-
