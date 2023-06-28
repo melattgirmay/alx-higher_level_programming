@@ -6,8 +6,9 @@ for (const userId in dict) {
 	const occurrence = dict[userId];
 	if (result[occurrence]) {
 		result[occurrence].push(userId);
-	} else {
+	}
+	else {
 		result[occurrence] = [userId];
-  }
+	}
 }
 console.log(result);
