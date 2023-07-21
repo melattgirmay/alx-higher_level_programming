@@ -1,12 +1,5 @@
 #!/usr/bin/node
-
 const fs = require('fs');
-const [sourceFile1, sourceFile2, destinationFile] = process.argv.slice(2);
-
-const content1 = fs.readFileSync(sourceFile1, 'utf8').trim();
-const content2 = fs.readFileSync(sourceFile2, 'utf8').trim();
-const concatenatedContent = `${content1}\n${content2}`;
-
-fs.writeFileSync(destinationFile, concatenatedContent);
-
-console.log(concatenatedContent);
+const src1 = fs.readFileSync(process.argv[2], 'utf8');
+const src2 = fs.readFileSync(process.argv[3], 'utf8');
+fs.writeFileSync(process.argv[4], src1 + src2);
