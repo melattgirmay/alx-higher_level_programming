@@ -10,19 +10,15 @@ import MySQLdb
 from sys import argv
 
 if __name__ == '__main__':
-    """
-    Access to the database and get the states
-    from the database.
-    """
-
-    db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
-                         passwd=argv[2], db=argv[3])
-
+    # Connect to the database
+    db = MySQLdb.connect(host="localhost", user=argv[1], passwd=argv[2], db=argv[3])
     cur = db.cursor()
-    cur.execute("SELECT * FROM states \
-                 WHERE name LIKE BINARY '{}' \
-                 ORDER BY states.id ASC".format(argv[4]))
+
+    # Use placeholders and execute method to handle user input safely
+    cur.execute("SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY states.id ASC", (argv[4],))
     rows = cur.fetchall()
 
+    # Display the results
     for row in rows:
         print(row)
+
