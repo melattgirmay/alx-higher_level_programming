@@ -11,7 +11,3 @@ const src2Content = fs.readFileSync(src2Path, 'utf8');
 const concatContent = src1Content + src2Content;
 
 fs.writeFileSync(destPath, concatContent);
-
-// Print the output to the console for verification
-console.log(concatContent);
-
